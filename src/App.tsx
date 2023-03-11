@@ -1,16 +1,21 @@
-import {FC} from 'react'
+import { FC } from 'react'
+import { Route, Routes } from 'react-router-dom'
 import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
-import Home from './pages/Home/Home'
+import { routes } from './routes'
 
-const App:FC = () => {
+const App: FC = () => {
   return (
     <div>
       <Header />
-      <Home />
+      <Routes>
+        {routes.map(({ path, element }) => (
+          <Route path={path} element={element} />
+        ))}
+      </Routes>
       <Footer />
     </div>
   )
 }
 
-export default App
+export default App;
